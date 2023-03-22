@@ -1,0 +1,114 @@
+{
+    "features": [
+        {
+            "id": 1,
+            "name": "Just a Few Words",
+            "description": "たった一言",
+            "image": "https://mangadex.org/covers/73ee5c5e-5dcf-472e-8fe1-2affc8e99000/48296167-adcd-4d95-91c8-b6ccdb997589.jpg.512.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Komi-san wa Komyushou Desu.",
+            "description": "Komi Can't Communicate",
+            "image": "https://mangadex.org/covers/a96676e5-8ae2-425e-b549-7f15dd34a6d8/87de445f-c774-49f5-aced-d03b35ddb6d8.jpg.512.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Wakaba-chan wa Wakarasetai",
+            "description": "Wakaba-chan Wants to Make It Clear",
+            "image": "https://mangadex.org/covers/45b8d08e-b3ca-4aa7-bb14-120a1ed3c72f/58b42a1e-a047-4277-ac39-4de0552a9184.jpg.512.jpg"
+        },
+        {
+            "id": 4,
+            "name": "I'm Addicted to Her",
+            "description": "彼女のそれにやられてる",
+            "image": "https://mangadex.org/covers/43abd2e4-cbb0-4368-aa0d-6bb2c04caf96/3a78539b-1bb8-456d-ae5c-ee9eff3e4c7f.png.512.jpg"
+        },
+        {
+            "id": 5,
+            "name": "Martial Inverse",
+            "description": "Wu Ni",
+            "image": "https://mangadex.org/covers/97b0eaa2-0450-4fee-b1ff-6b643483ca77/fad6a918-9601-444b-af91-e1c8320498d3.png.512.jpg"
+        },
+        {
+            "id": 6,
+            "name": "Ayakashi Triangle",
+            "description": "あやかしトライアングル",
+            "image": "https://mangadex.org/covers/b49db7e7-0637-462c-9d09-372f5d09de4a/60f3c3b7-7a6d-48fd-a7f3-88c84941b716.jpg.512.jpg"
+        }
+    ],
+    "comics": [
+        {
+            "id": 1,
+            "name": "Just a Few Words",
+            "description": "たった一言",
+            "image": "https://mangadex.org/covers/73ee5c5e-5dcf-472e-8fe1-2affc8e99000/48296167-adcd-4d95-91c8-b6ccdb997589.jpg.512.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Komi-san wa Komyushou Desu.",
+            "description": "Komi Can't Communicate",
+            "image": "https://mangadex.org/covers/a96676e5-8ae2-425e-b549-7f15dd34a6d8/87de445f-c774-49f5-aced-d03b35ddb6d8.jpg.512.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Wakaba-chan wa Wakarasetai",
+            "description": "Wakaba-chan Wants to Make It Clear",
+            "image": "https://mangadex.org/covers/45b8d08e-b3ca-4aa7-bb14-120a1ed3c72f/58b42a1e-a047-4277-ac39-4de0552a9184.jpg.512.jpg"
+        },
+        {
+            "id": 4,
+            "name": "I'm Addicted to Her",
+            "description": "彼女のそれにやられてる",
+            "image": "https://mangadex.org/covers/43abd2e4-cbb0-4368-aa0d-6bb2c04caf96/3a78539b-1bb8-456d-ae5c-ee9eff3e4c7f.png.512.jpg"
+        },
+        {
+            "id": 5,
+            "name": "Martial Inverse",
+            "description": "Wu Ni",
+            "image": "https://mangadex.org/covers/97b0eaa2-0450-4fee-b1ff-6b643483ca77/fad6a918-9601-444b-af91-e1c8320498d3.png.512.jpg"
+        },
+        {
+            "id": 6,
+            "name": "Ayakashi Triangle",
+            "description": "あやかしトライアングル",
+            "image": "https://mangadex.org/covers/b49db7e7-0637-462c-9d09-372f5d09de4a/60f3c3b7-7a6d-48fd-a7f3-88c84941b716.jpg.512.jpg"
+        },
+        {
+            "id": 7,
+            "name": "Just a Few Words",
+            "description": "たった一言",
+            "image": "https://mangadex.org/covers/73ee5c5e-5dcf-472e-8fe1-2affc8e99000/48296167-adcd-4d95-91c8-b6ccdb997589.jpg.512.jpg"
+        },
+        {
+            "id": 8,
+            "name": "Komi-san wa Komyushou Desu.",
+            "description": "Komi Can't Communicate",
+            "image": "https://mangadex.org/covers/a96676e5-8ae2-425e-b549-7f15dd34a6d8/87de445f-c774-49f5-aced-d03b35ddb6d8.jpg.512.jpg"
+        },
+        {
+            "id": 9,
+            "name": "Wakaba-chan wa Wakarasetai",
+            "description": "Wakaba-chan Wants to Make It Clear",
+            "image": "https://mangadex.org/covers/45b8d08e-b3ca-4aa7-bb14-120a1ed3c72f/58b42a1e-a047-4277-ac39-4de0552a9184.jpg.512.jpg"
+        },
+        {
+            "id": 10,
+            "name": "I'm Addicted to Her",
+            "description": "彼女のそれにやられてる",
+            "image": "https://mangadex.org/covers/43abd2e4-cbb0-4368-aa0d-6bb2c04caf96/3a78539b-1bb8-456d-ae5c-ee9eff3e4c7f.png.512.jpg"
+        },
+        {
+            "id": 11,
+            "name": "Martial Inverse",
+            "description": "Wu Ni",
+            "image": "https://mangadex.org/covers/97b0eaa2-0450-4fee-b1ff-6b643483ca77/fad6a918-9601-444b-af91-e1c8320498d3.png.512.jpg"
+        },
+        {
+            "id": 12,
+            "name": "Ayakashi Triangle",
+            "description": "あやかしトライアングル",
+            "image": "https://mangadex.org/covers/b49db7e7-0637-462c-9d09-372f5d09de4a/60f3c3b7-7a6d-48fd-a7f3-88c84941b716.jpg.512.jpg"
+        }
+    ]
+}
