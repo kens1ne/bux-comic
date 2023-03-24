@@ -61,7 +61,7 @@ export default function Home(props) {
                 <div className="latest-update py-3 px-2 bg-white">
                     <div className="max-w-7xl mx-auto">
                         <h2 className="text-xl my-2 font-bold">Latest update</h2>
-                        <div className="grid grid-cols-2 md:grid-cols-6 gap-5">
+                        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-5">
                             {comics.map((item, index) => {
                                 return <Comic key={item.id} data={item} />;
                             })}
@@ -69,7 +69,7 @@ export default function Home(props) {
                         <div className="flex justify-end">
                             <Link
                                 href="/about"
-                                className="flex items-center transition duration-150 ease-in-out hover:drop-shadow-lg hover:text-red-500"
+                                className="flex font-bold items-center transition duration-150 ease-in-out hover:drop-shadow-lg hover:text-red-500"
                             >
                                 More <AiOutlineArrowRight />
                             </Link>

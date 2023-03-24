@@ -27,16 +27,28 @@ const Features = ({ data }) => {
                                 {data.name}
                             </h2>
                             <div className="categories hidden md:block">
-                                <Link href="/" className="tag px-1 mr-1 bg-red-400 text-white uppercase rounded">
+                                <Link
+                                    href="/"
+                                    className="tag font-sans px-1 mr-1 bg-red-400 text-white uppercase rounded"
+                                >
                                     Action
                                 </Link>
-                                <Link href="/" className="tag px-1 mr-1 bg-red-400 text-white uppercase rounded">
+                                <Link
+                                    href="/"
+                                    className="tag font-sans px-1 mr-1 bg-red-400 text-white uppercase rounded"
+                                >
                                     Adventure
                                 </Link>
-                                <Link href="/" className="tag px-1 mr-1 bg-red-400 text-white uppercase rounded">
+                                <Link
+                                    href="/"
+                                    className="tag font-sans px-1 mr-1 bg-red-400 text-white uppercase rounded"
+                                >
                                     Romance
                                 </Link>
-                                <Link href="/" className="tag px-1 mr-1 bg-red-400 text-white uppercase rounded">
+                                <Link
+                                    href="/"
+                                    className="tag font-sans px-1 mr-1 bg-red-400 text-white uppercase rounded"
+                                >
                                     Sport
                                 </Link>
                             </div>
