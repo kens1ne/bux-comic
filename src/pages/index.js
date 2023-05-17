@@ -61,7 +61,7 @@ export default function Home(props) {
                 <div className="latest-update py-3 px-2 bg-white">
                     <div className="max-w-7xl mx-auto">
                         <h2 className="text-xl my-2 font-bold">Latest update</h2>
-                        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-5">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
                             {comics.map((item, index) => {
                                 return <Comic key={item.id} data={item} />;
                             })}

@@ -14,11 +14,11 @@ const Comic = ({ data }) => {
                         layout="fill"
                     />
                 </div>
-                <div className="inline absolute inset-0 flex justify-center bg-red-700/40 opacity-0 rounded group-hover:opacity-100 ">
-                    <div className="absolute top-10 text-white">Chapter: 49</div>
-                    <button className="read-now absolute bottom-10 flex items-center p-2 bg-red-500 text-white">
-                        Read now <GoLinkExternal className="text-base" />
-                    </button>
+                <div className="inline absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-red-700/70 opacity-0 rounded group-hover:opacity-100">
+                    <div className="absolute bottom-2 left-1.5 text-sm font-medium text-white">{data.name}</div>
+                </div>
+                <div className="absolute left-2 top-2 text-xs p-1 bg-black/70 rounded text-white group-hover:bg-red-700/70">
+                    Chapter: 49
                 </div>
             </Link>
             <div className="information">

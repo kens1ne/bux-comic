@@ -12,7 +12,7 @@ const Features = ({ data }) => {
         >
             <div className="relative backdrop-blur-xl px-2 py-3 rounded-lg">
                 <div className="flex justify-between items-end">
-                    <div class="flex">
+                    <div className="flex">
                         <div className="h-[167px] sm:h-[268px] md:h-[268px] w-[187px] relative">
                             <Image
                                 src={data.image}
