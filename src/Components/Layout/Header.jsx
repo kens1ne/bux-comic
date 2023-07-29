@@ -32,11 +32,8 @@ export default function Header() {
                 Genres
                 <ul className="z-20 absolute bg-white shadow-lg rounded group-hover:grid grid-cols-4 p-2 hidden group-hover:block">
                   {Genres.map((genre) => (
-                    <Link href={`/genres/${genre.id}`}>
-                      <li
-                        className="py-1 px-4 hover:bg-rose-500/10 hover:text-rose-600 rounded"
-                        key={genre.id}
-                      >
+                    <Link href={`/genres/${genre.id}`} key={genre.id}>
+                      <li className="py-1 px-4 hover:bg-rose-500/10 hover:text-rose-600 rounded">
                         {genre.name}
                       </li>
                     </Link>

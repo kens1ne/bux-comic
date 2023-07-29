@@ -20,7 +20,7 @@ export async function getServerSideProps(context) {
   }
 }
 
-const index = (props) => {
+const Index = (props) => {
   const title = props?.data.title;
   const thumbnail = props?.data.thumbnail;
   const description = props?.data.description;
@@ -139,4 +139,4 @@ const index = (props) => {
   );
 };
 
-export default index;
+export default Index;
