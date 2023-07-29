@@ -1,11 +1,11 @@
-import Header from "@/components/Layout/header";
+import Header from "@/components/Layout/Header";
 import React from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import ComicCard from "@/components/comicCard";
+import ComicCard from "@/components/ComicCard";
 import axios from "axios";
-import Pagination from "@/components/pagination";
-import Footer from "@/components/Layout/footer";
+import Pagination from "@/components/Pagination";
+import Footer from "@/components/Layout/Footer";
 import Genres from "@/utils/genres";
 
 export async function getServerSideProps(context) {
@@ -13,7 +13,9 @@ export async function getServerSideProps(context) {
   try {
     const {
       data: { comics: comics, total_pages: totalPages },
-    } = await axios.get("https://api.manhwaco.com/genres/" + genreId);
+    } = await axios.get(
+      "https://comics-api-kensine.vercel.app/genres/" + genreId
+    );
 
     const name = Genres.find((item) => item.id === genreId).name;
     const id = Genres.find((item) => item.id === genreId).id;

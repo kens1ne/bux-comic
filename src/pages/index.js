@@ -1,21 +1,21 @@
 import Head from "next/head";
 import Image from "next/image";
-import Header from "@/components/Layout/header";
+import Header from "@/components/Layout/Header";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import "swiper/css";
-import Features from "@/components/features";
+import Features from "@/components/Features";
 import axios from "axios";
-import Comic from "@/components/comicCard";
+import Comic from "@/components/ComicCard";
 import Link from "next/link";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { useState } from "react";
 import { virtualArray } from "@/utils/VirtualArray";
-import Pagination from "@/components/pagination";
-import Footer from "@/components/Layout/footer";
+import Pagination from "@/components/Pagination";
+import Footer from "@/components/Layout/Footer";
 
 // export async function getStaticProps() {
-//     const { data: {comics : comics}   } = await axios.get('https://api.manhwaco.com/latest');
+//     const { data: {comics : comics}   } = await axios.get('https://comics-api-kensine.vercel.app/latest');
 
 //     const featurePosts = comics.slice(0, 5);
 //     return {
@@ -91,7 +91,7 @@ Home.getInitialProps = async () => {
   try {
     const {
       data: { comics: comics, total_pages: totalPages },
-    } = await axios.get("https://api.manhwaco.com/latest");
+    } = await axios.get("https://comics-api-kensine.vercel.app/latest");
     const featurePosts = comics.slice(0, 5);
     return { comics, featurePosts, totalPages };
   } catch (error) {

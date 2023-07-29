@@ -1,20 +1,22 @@
-import Header from "@/components/Layout/header";
+import Header from "@/components/Layout/Header";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { virtualArray } from "@/utils/VirtualArray";
-import Comic from "@/components/comicCard";
+import Comic from "@/components/ComicCard";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import axios from "axios";
-import Pagination from "@/components/pagination";
-import Footer from "@/components/Layout/footer";
+import Pagination from "@/components/Pagination";
+import Footer from "@/components/Layout/Footer";
 
 export async function getServerSideProps(context) {
   const page = context.query.page || 1;
   try {
     const {
       data: { comics: comics, total_pages: totalPages },
-    } = await axios.get("https://api.manhwaco.com/latest?page=" + page);
+    } = await axios.get(
+      "https://comics-api-kensine.vercel.app/latest?page=" + page
+    );
 
     return { props: { comics, totalPages } };
   } catch (error) {

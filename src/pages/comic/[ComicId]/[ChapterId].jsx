@@ -27,7 +27,7 @@ const Chapter = () => {
     const getData = async () => {
       try {
         const { data } = await axios.get(
-          "https://api.manhwaco.com/comics/" +
+          "https://comics-api-kensine.vercel.app/comics/" +
             ComicId +
             "/chapters/" +
             ChapterId

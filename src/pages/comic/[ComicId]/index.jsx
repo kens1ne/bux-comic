@@ -1,5 +1,5 @@
-import Footer from "@/components/Layout/footer";
-import Header from "@/components/Layout/header";
+import Footer from "@/components/Layout/Footer";
+import Header from "@/components/Layout/Header";
 import axios from "axios";
 import Head from "next/head";
 import Image from "next/image";
@@ -10,7 +10,7 @@ export async function getServerSideProps(context) {
   const ComicId = context.query.ComicId;
   try {
     const { data } = await axios.get(
-      "https://api.manhwaco.com/comics/" + ComicId
+      "https://comics-api-kensine.vercel.app/comics/" + ComicId
     );
 
     return { props: { data } };
