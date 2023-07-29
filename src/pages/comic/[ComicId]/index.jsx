@@ -1,5 +1,5 @@
-import Footer from "@/components/Layout/Footer";
-import Header from "@/components/Layout/Header";
+import Footer from "@/components/Layout/footer";
+import Header from "@/components/Layout/header";
 import axios from "axios";
 import Head from "next/head";
 import Image from "next/image";
