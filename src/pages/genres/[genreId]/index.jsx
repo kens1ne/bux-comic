@@ -1,12 +1,12 @@
-import Header from "../../../components/Layout/Header";
+import Header from "@/components/Layout/Header";
 import React from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import ComicCard from "../../../components/ComicCard";
+import ComicCard from "@/components/ComicCard";
 import axios from "axios";
-import Pagination from "../../../components/Pagination";
-import Footer from "../../../components/Layout/Footer";
-import Genres from "../../../utils/genres";
+import Pagination from "@/components/Pagination";
+import Footer from "@/components/Layout/Footer";
+import Genres from "@/utils/genres";
 
 export async function getServerSideProps(context) {
   const genreId = context.query.genreId || 1;
