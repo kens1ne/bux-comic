@@ -1,0 +1,50 @@
+import Image from "next/image";
+import Link from "next/link";
+import { GoLinkExternal } from "react-icons/go";
+
+const Comic = ({ data }) => {
+  return (
+    <div>
+      <Link
+        href={`/comic/${data.id}`}
+        className="relative overflow-hidden group"
+      >
+        <div className="img-thumb relative">
+          <Image
+            src={data.thumbnail}
+            alt={data.title}
+            className="w-full group-hover:blur-[2px] transition duration-150 ease-in-out hover:drop-shadow-lg rounded"
+            width={0}
+            height={0}
+            sizes={"100%"}
+          />
+        </div>
+        <div className="inline absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-red-700/70 opacity-0 rounded group-hover:opacity-100">
+          <div className="absolute bottom-2 left-1.5 text-sm font-medium text-white">
+            {data.name}
+          </div>
+        </div>
+        <div className="absolute left-2 top-2 text-xs p-1 bg-black/70 rounded text-white group-hover:bg-red-700/70">
+          {data.last_chapter[0].name}
+        </div>
+      </Link>
+      <div className="information">
+        <Link
+          href={`/comic/${data.id}`}
+          className="comic-name font-semibold text-sm overflow-hidden hover:text-red-500"
+        >
+          {data.title}
+        </Link>
+        <div className="detail uppercase hover:text-red-500">
+          <span>
+            <Link href={`/comic/${data.id}/${data.last_chapter[0].id}`}>
+              {data.last_chapter[0].name}
+            </Link>
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Comic;

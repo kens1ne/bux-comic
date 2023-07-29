@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['mangadex.org', 'localhost', 'storage-bravo.cuutruyen.net'], // <== Domain name
+        domains: ['mangadex.org', 'localhost', 'api.manhwaco.com'], // <== Domain name
     },
 };
 
