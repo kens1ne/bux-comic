@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import Header from "@/components/Layout/Header";
+import Header from "@/components/layout/Header";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import "swiper/css";
@@ -12,7 +12,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import { useState } from "react";
 import { virtualArray } from "@/utils/VirtualArray";
 import Pagination from "@/components/Pagination";
-import Footer from "@/components/Layout/Footer";
+import Footer from "@/components/layout/Footer";
 
 // export async function getStaticProps() {
 //     const { data: {comics : comics}   } = await axios.get('https://api.manhwaco.com/latest');

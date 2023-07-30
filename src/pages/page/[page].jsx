@@ -1,4 +1,4 @@
-import Header from "@/components/Layout/Header";
+import Header from "@/components/layout/Header";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
@@ -7,7 +7,7 @@ import Comic from "@/components/ComicCard";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import axios from "axios";
 import Pagination from "@/components/Pagination";
-import Footer from "@/components/Layout/Footer";
+import Footer from "@/components/layout/Footer";
 
 export async function getServerSideProps(context) {
   const page = context.query.page || 1;

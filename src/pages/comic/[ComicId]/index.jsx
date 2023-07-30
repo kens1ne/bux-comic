@@ -1,10 +1,11 @@
-import Footer from "@/components/Layout/Footer";
-import Header from "@/components/Layout/Header";
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
 import axios from "axios";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import { AiFillInfoCircle, AiOutlineUnorderedList } from "react-icons/ai";
 
 export async function getServerSideProps(context) {
   const ComicId = context.query.ComicId;
@@ -44,7 +45,7 @@ const Index = (props) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Header />
-      <main className="bg-gray-200">
+      <main className="bg-gray-200 pb-10">
         <div
           style={{
             backgroundImage: `url(${props.data.thumbnail})`,
@@ -85,20 +86,7 @@ const Index = (props) => {
                       );
                     })}
                   </div>
-                  <div>
-                    <p className="my-2 text-white">
-                      {isDescriptionVisible ? description : shortDescription}
-                    </p>
-                    {description.length > maxShortDescriptionLength && (
-                      <span
-                        className="text-white text-sm underline cursor-pointer"
-                        onClick={toggleDescription}
-                      >
-                        {isDescriptionVisible ? "Hide" : "View more"}
-                      </span>
-                    )}
-                  </div>
-                  <div className="flex flex-col sm:flex-row items-center gap-3 mt-5 font-bold">
+                  <div className="flex items-center gap-3 mt-5 font-bold">
                     <button className="flex items-center gap-1 bg-red-500 shadow-lg shadow-red-500/50 hover:bg-red-500/70 rounded text-white text-lg px-6 py-2">
                       Read First
                     </button>
@@ -111,10 +99,28 @@ const Index = (props) => {
             </div>
           </div>
         </div>
-        <div class="mx-2">
-          <div className="max-w-7xl mx-auto px-4 py-3 bg-white my-2">
-            <h2 className="text-xl my-2 font-bold hover:text-red-500 cursor-pointer">
-              Latest manga releases:
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="summary px-4 pb-5 pt-2 bg-white rounded-lg my-5">
+            <h2 className="flex items-center text-lg font-medium hover:text-red-500 cursor-pointer">
+              <AiFillInfoCircle className="mr-1" /> Summary
+            </h2>
+            <div>
+              <p className="my-2">
+                {isDescriptionVisible ? description : shortDescription}
+              </p>
+              {description.length > maxShortDescriptionLength && (
+                <span
+                  className="text-sm underline cursor-pointer"
+                  onClick={toggleDescription}
+                >
+                  {isDescriptionVisible ? "Hide" : "View more"}
+                </span>
+              )}
+            </div>
+          </div>
+          <div className="chapters px-4 pb-5 pt-2 bg-white rounded-lg">
+            <h2 className="flex items-center text-lg my-2 font-medium hover:text-red-500 cursor-pointer">
+              <AiOutlineUnorderedList className="mr-1" /> Latest manga releases:
             </h2>
             <div className="max-h-[450px] overflow-y-scroll">
               <ul className="divide-y divide-gray-200">

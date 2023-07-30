@@ -19,7 +19,7 @@ const Comic = ({ data }) => {
           </div>
         </div>
 
-        <div className="z-20 absolute left-2 top-2 text-xs p-1 bg-black/70 rounded text-white group-hover:bg-red-700/70">
+        <div className="absolute left-2 top-2 text-xs p-1 bg-black/70 rounded text-white group-hover:bg-red-700/70">
           {data.last_chapter[0].name}
         </div>
       </Link>

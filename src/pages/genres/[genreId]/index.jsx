@@ -1,11 +1,11 @@
-import Header from "@/components/Layout/Header";
+import Header from "@/components/layout/Header";
 import React from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import ComicCard from "@/components/ComicCard";
 import axios from "axios";
 import Pagination from "@/components/Pagination";
-import Footer from "@/components/Layout/Footer";
+import Footer from "@/components/layout/Footer";
 import Genres from "@/utils/genres";
 
 export async function getServerSideProps(context) {
