@@ -4,12 +4,9 @@ import { GoLinkExternal } from "react-icons/go";
 
 const Comic = ({ data }) => {
   return (
-    <div>
-      <Link
-        href={`/comic/${data.id}`}
-        className="relative overflow-hidden group"
-      >
-        <div className="img-thumb relative">
+    <div className="relative">
+      <Link href={`/comic/${data.id}`} className="overflow-hidden group">
+        <div className="img-thumb">
           <Image
             src={data.thumbnail}
             alt={data.title}
@@ -24,7 +21,7 @@ const Comic = ({ data }) => {
             {data.name}
           </div>
         </div>
-        <div className="absolute left-2 top-2 text-xs p-1 bg-black/70 rounded text-white group-hover:bg-red-700/70">
+        <div className="z-20 absolute left-2 top-2 text-xs p-1 bg-black/70 rounded text-white group-hover:bg-red-700/70">
           {data.last_chapter[0].name}
         </div>
       </Link>
