@@ -6,7 +6,7 @@ const Comic = ({ data }) => {
   return (
     <div className="relative">
       <Link href={`/comic/${data.id}`} className="overflow-hidden group">
-        <div className="img-thumb">
+        <div className="img-thumb relative">
           <Image
             src={data.thumbnail}
             alt={data.title}
@@ -15,12 +15,13 @@ const Comic = ({ data }) => {
             height={0}
             sizes={"100%"}
           />
-        </div>
-        <div className="inline absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-red-700/70 opacity-0 rounded group-hover:opacity-100">
-          <div className="absolute bottom-2 left-1.5 text-sm font-medium text-white">
-            {data.name}
+          <div className="inline absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-red-700/70 opacity-0 rounded group-hover:opacity-100">
+            <div className="absolute bottom-2 left-1.5 text-sm font-medium text-white">
+              {data.title}
+            </div>
           </div>
         </div>
+
         <div className="z-20 absolute left-2 top-2 text-xs p-1 bg-black/70 rounded text-white group-hover:bg-red-700/70">
           {data.last_chapter[0].name}
         </div>
