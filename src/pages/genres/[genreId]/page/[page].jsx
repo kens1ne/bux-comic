@@ -15,10 +15,7 @@ export async function getServerSideProps(context) {
     const {
       data: { comics: comics, total_pages: totalPages },
     } = await axios.get(
-      "https://comics-api-kensine.vercel.app/genres/" +
-        genreId +
-        "?page=" +
-        page
+      "https://api.manhwaco.com/genres/" + genreId + "?page=" + page
     );
 
     const name = Genres.find((item) => item.id === genreId).name;

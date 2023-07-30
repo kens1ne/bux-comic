@@ -7,13 +7,10 @@ const Comic = ({ data }) => {
     <div className="relative">
       <Link href={`/comic/${data.id}`} className="overflow-hidden group">
         <div className="img-thumb relative">
-          <Image
+          <img
             src={data.thumbnail}
             alt={data.title}
             className="w-full group-hover:blur-[2px] transition duration-150 ease-in-out hover:drop-shadow-lg rounded"
-            width={0}
-            height={0}
-            sizes={"100%"}
           />
           <div className="inline absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-red-700/70 opacity-0 rounded group-hover:opacity-100">
             <div className="absolute bottom-2 left-1.5 text-sm font-medium text-white">

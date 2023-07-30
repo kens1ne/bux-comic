@@ -10,7 +10,7 @@ export async function getServerSideProps(context) {
   const ComicId = context.query.ComicId;
   try {
     const { data } = await axios.get(
-      "https://comics-api-kensine.vercel.app/comics/" + ComicId
+      "https://api.manhwaco.com/comics/" + ComicId
     );
 
     return { props: { data } };
@@ -57,11 +57,10 @@ const Index = (props) => {
             <div className="max-w-7xl mx-auto px-2 py-3 rounded-md">
               <div className="sm:grid sm:grid-cols-6 gap-6 md:p-4 md:border-white">
                 <div className="aspect-[2/3] mx-auto w-[50%] sm:w-full rounded overflow-hidden relative sm:col-span-1">
-                  <Image
+                  <img
                     src={thumbnail}
                     alt={title}
                     className="hover:drop-shadow-lg rounded"
-                    layout="fill"
                   />
                 </div>
                 <div className="sm:col-span-4 mt-2">

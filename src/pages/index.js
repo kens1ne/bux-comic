@@ -15,7 +15,7 @@ import Pagination from "@/components/Pagination";
 import Footer from "@/components/Layout/Footer";
 
 // export async function getStaticProps() {
-//     const { data: {comics : comics}   } = await axios.get('https://comics-api-kensine.vercel.app/latest');
+//     const { data: {comics : comics}   } = await axios.get('https://api.manhwaco.com/latest');
 
 //     const featurePosts = comics.slice(0, 5);
 //     return {
@@ -91,7 +91,7 @@ Home.getInitialProps = async () => {
   try {
     const {
       data: { comics: comics, total_pages: totalPages },
-    } = await axios.get("https://comics-api-kensine.vercel.app/latest");
+    } = await axios.get("https://api.manhwaco.com/latest");
     const featurePosts = comics.slice(0, 5);
     return { comics, featurePosts, totalPages };
   } catch (error) {

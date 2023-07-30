@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["mangadex.org", "localhost", "comics-api-kensine.vercel.app"], // <== Domain name
+    domains: ["mangadex.org", "localhost", "cdn.manhwaco.com"], // <== Domain name
   },
 };
 
