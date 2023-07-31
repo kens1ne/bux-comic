@@ -22,6 +22,9 @@ const Chapter = () => {
   const [showChapters, setShowChapters] = useState(false);
   const chaptersListRef = useRef(null);
 
+  const currentChapterIndex = data?.chapters.findIndex(
+    (chapter) => chapter.id === ChapterId
+  );
   useEffect(() => {
     setIsFetching(true);
     const getData = async () => {
@@ -35,6 +38,8 @@ const Chapter = () => {
         setData(data);
         setTitle(data.comic_name + " - " + data.chapter_name);
         setShowToolbars(true);
+        data.images.unshift({ src: "/start.jpg" });
+        data.images.push({ src: "/end.jpg" });
       } catch (error) {
         console.error("Error fetching data:", error.message);
         setData({});
@@ -78,6 +83,11 @@ const Chapter = () => {
       </Head>
       <main className="bg-zinc-900 min-h-screen">
         <div className="flex flex-col max-w-2xl mx-auto">
+          {/* <img
+            src={"/start.jpg"}
+            alt="ManhwaCo"
+            className="image-source w-full"
+          /> */}
           {isFetching
             ? virtualArray(10).map((item, index) => {
                 return (
@@ -103,6 +113,11 @@ const Chapter = () => {
                   </div>
                 );
               })}
+          {/* <img
+            src={"/end.jpg"}
+            alt="ManhwaCo"
+            className="image-source w-full"
+          /> */}
         </div>
         <div className="fixed inset-0" onClick={handleShowToolBars}>
           <div
@@ -138,14 +153,23 @@ const Chapter = () => {
             >
               <div className="max-w-2xl mx-auto">
                 <div className="flex items-center justify-between gap-3">
-                  <Link href={`/comic/${ComicId}/`}>
+                  {data.chapters.length - currentChapterIndex === 1 ? (
+                    <div></div>
+                  ) : (
                     <button
                       className="p-2 bg-red-500 text-white rounded"
                       title="Previous"
                     >
-                      <AiOutlineLeft />
+                      <Link
+                        href={`/comic/${ComicId}/${
+                          data.chapters[currentChapterIndex + 1]?.id
+                        }`}
+                      >
+                        <AiOutlineLeft />
+                      </Link>
                     </button>
-                  </Link>
+                  )}
+
                   <div className="flex items-center">
                     <Link href={`/comic/${ComicId}/`}>
                       <button className="p-2 bg-cyan-500 text-white rounded mr-1">
@@ -191,14 +215,22 @@ const Chapter = () => {
                       {data?.chapter_name}
                     </button>
                   </div>
-                  <Link href={`/comic/${ComicId}/`}>
-                    <button
-                      className="p-2 bg-red-500 text-white rounded"
-                      title="Next"
+                  {currentChapterIndex === 0 ? (
+                    <div></div>
+                  ) : (
+                    <Link
+                      href={`/comic/${ComicId}/${
+                        data.chapters[currentChapterIndex - 1]?.id
+                      }`}
                     >
-                      <AiOutlineRight />
-                    </button>
-                  </Link>
+                      <button
+                        className="p-2 bg-red-500 text-white rounded"
+                        title="Next"
+                      >
+                        <AiOutlineRight />
+                      </button>
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
