@@ -4,7 +4,7 @@ import axios from "axios";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiFillInfoCircle, AiOutlineUnorderedList } from "react-icons/ai";
 
 export async function getServerSideProps(context) {
@@ -36,6 +36,26 @@ const Index = (props) => {
   const toggleDescription = () => {
     setDescriptionVisible(!isDescriptionVisible);
   };
+
+  const [chapters, setChapters] = useState();
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const { data } = await axios.get(
+          "https://api.manhwaco.com/comics/" + props.data.id + "/chapters/"
+        );
+
+        setChapters(data);
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+        setChapters([]);
+      }
+    };
+    if (title) {
+      getData();
+    }
+  }, [title]);
 
   return (
     <>
@@ -87,12 +107,22 @@ const Index = (props) => {
                     })}
                   </div>
                   <div className="flex items-center gap-3 mt-5 font-bold">
-                    <button className="flex items-center gap-1 bg-red-500 shadow-lg shadow-red-500/50 hover:bg-red-500/70 rounded text-white text-lg px-6 py-2">
+                    <Link
+                      href={`/comic/${props.data.id}/${
+                        chapters ? chapters?.[chapters.length - 1].id : ""
+                      }`}
+                      className="flex items-center gap-1 bg-red-500 shadow-lg shadow-red-500/50 hover:bg-red-500/70 rounded text-white text-lg px-6 py-2"
+                    >
                       Read First
-                    </button>
-                    <button className="flex items-center gap-1 rounded border-red-500 border-[1px] text-lg px-6 py-2 text-red-500 hover:text-white">
+                    </Link>
+                    <Link
+                      href={`/comic/${props.data.id}/${
+                        chapters ? chapters?.[0].id : ""
+                      }`}
+                      className="flex items-center gap-1 rounded border-red-500 border-[1px] text-lg px-6 py-2 text-red-500 hover:text-white"
+                    >
                       Read Last
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -124,7 +154,7 @@ const Index = (props) => {
             </h2>
             <div className="max-h-[450px] overflow-y-scroll">
               <ul className="divide-y divide-gray-200">
-                {props.data.chapters.map((chapter) => (
+                {chapters?.map((chapter) => (
                   <li key={chapter.id}>
                     <Link
                       href={`/comic/${props.data.id}/${chapter.id}`}

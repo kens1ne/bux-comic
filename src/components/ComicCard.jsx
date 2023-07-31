@@ -19,7 +19,7 @@ const Comic = ({ data }) => {
           </div>
         </div>
 
-        <div className="absolute left-2 top-2 text-xs p-1 bg-black/70 rounded text-white group-hover:bg-red-700/70">
+        <div className="comic-name absolute left-2 top-2 text-xs p-1 bg-black/70 rounded text-white group-hover:bg-red-700/70">
           {data.last_chapter[0].name}
         </div>
       </Link>
@@ -31,7 +31,7 @@ const Comic = ({ data }) => {
           {data.title}
         </Link>
         <div className="detail uppercase hover:text-red-500">
-          <span>
+          <span className="comic-name">
             <Link href={`/comic/${data.id}/${data.last_chapter[0].id}`}>
               {data.last_chapter[0].name}
             </Link>
