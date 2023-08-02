@@ -7,7 +7,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { AiFillInfoCircle, AiOutlineUnorderedList } from "react-icons/ai";
 
-export const getComicDetail = async (ComicId) => {
+const getComicDetail = async (ComicId) => {
   return await fetch(`https://api.manhwaco.com/comics/` + ComicId)
     .then((res) => res.json())
     .then((res) => res);

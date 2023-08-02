@@ -9,19 +9,25 @@ import axios from "axios";
 import Pagination from "@/components/Pagination";
 import Footer from "@/components/layout/Footer";
 
-export async function getServerSideProps(context) {
-  const page = context.query.page || 1;
-  try {
-    const {
-      data: { comics: comics, total_pages: totalPages },
-    } = await axios.get("https://api.manhwaco.com/latest?page=" + page);
+const getLatestUpdateByPage = async (page) => {
+  return await fetch(`https://api.manhwaco.com/latest?page=` + page)
+    .then((res) => res.json())
+    .then((res) => res);
+};
 
-    return { props: { comics, totalPages } };
-  } catch (error) {
-    console.error("Error fetching data:", error.message);
-    return { data: [] };
-  }
-}
+export const getStaticProps = async ({ params }) => {
+  const page = params?.page || 1;
+  const { comics: comics, total_pages: totalPages } =
+    await getLatestUpdateByPage(page);
+
+  return {
+    props: {
+      comics,
+      totalPages,
+    },
+    revalidate: 60 * 1,
+  };
+};
 
 const Page = (props) => {
   const router = useRouter();
@@ -61,5 +67,11 @@ const Page = (props) => {
     </>
   );
 };
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: "blocking",
+  };
+}
 
 export default Page;

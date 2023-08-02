@@ -14,7 +14,7 @@ import { virtualArray } from "@/utils/VirtualArray";
 import Pagination from "@/components/Pagination";
 import Footer from "@/components/layout/Footer";
 
-export const getAllPosts = async () => {
+const getAllPosts = async () => {
   return await fetch(`https://api.manhwaco.com/latest`)
     .then((res) => res.json())
     .then((res) => res);

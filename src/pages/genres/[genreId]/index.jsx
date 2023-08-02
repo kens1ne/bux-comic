@@ -8,22 +8,30 @@ import Pagination from "@/components/Pagination";
 import Footer from "@/components/layout/Footer";
 import Genres from "@/utils/genres";
 
-export async function getServerSideProps(context) {
-  const genreId = context.query.genreId || 1;
-  try {
-    const {
-      data: { comics: comics, total_pages: totalPages },
-    } = await axios.get("https://api.manhwaco.com/genres/" + genreId);
+const getComicGenre = async (genreId) => {
+  return await fetch(`https://api.manhwaco.com/genres/` + genreId)
+    .then((res) => res.json())
+    .then((res) => res);
+};
 
-    const name = Genres.find((item) => item.id === genreId).name;
-    const id = Genres.find((item) => item.id === genreId).id;
+export const getStaticProps = async ({ params }) => {
+  const genreId = params?.genreId;
+  const { comics: comics, total_pages: totalPages } = await getComicGenre(
+    genreId
+  );
+  const name = Genres.find((item) => item.id === genreId).name;
+  const id = Genres.find((item) => item.id === genreId).id;
 
-    return { props: { comics, totalPages, genreName: name, genreId: id } };
-  } catch (error) {
-    console.error("Error fetching data:", error.message);
-    return { data: [] };
-  }
-}
+  return {
+    props: {
+      comics,
+      totalPages,
+      genreName: name,
+      genreId: id,
+    },
+    revalidate: 60 * 1,
+  };
+};
 
 const Genre = (props) => {
   const router = useRouter();
@@ -65,5 +73,12 @@ const Genre = (props) => {
     </>
   );
 };
+
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: "blocking",
+  };
+}
 
 export default Genre;
