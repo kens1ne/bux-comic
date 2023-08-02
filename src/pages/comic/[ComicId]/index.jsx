@@ -47,7 +47,7 @@ const Index = (props) => {
     const getData = async () => {
       try {
         const { data } = await axios.get(
-          "https://api.manhwaco.com/comics/" + props.data.id + "/chapters/"
+          "https://api.manhwaco.com/comics/" + props?.data.id + "/chapters/"
         );
 
         setChapters(data);

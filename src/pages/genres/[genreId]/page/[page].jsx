@@ -6,7 +6,7 @@ import ComicCard from "@/components/ComicCard";
 import axios from "axios";
 import Pagination from "@/components/Pagination";
 import Footer from "@/components/layout/Footer";
-import Genres from "@/utils/genres";
+import Genres from "@/utils/Genres";
 
 const getComicGenreByPage = async (genreId, page) => {
   return await fetch(
