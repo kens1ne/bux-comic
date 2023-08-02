@@ -76,9 +76,6 @@ export default function Header() {
               <li className="text-base font-semibold mx-2 hover:text-rose-700">
                 <Link href="/">Manhwa</Link>
               </li>
-              <li className="text-base font-semibold mx-2 hover:text-rose-700">
-                <Link href="/about">About</Link>
-              </li>
             </ul>
           </div>
           <div className="hidden md:block">
