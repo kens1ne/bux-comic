@@ -1,22 +1,49 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { use, useCallback, useEffect, useState } from "react";
 import { AiFillHome, AiOutlineClose } from "react-icons/ai";
 import { BsList, BsSearch } from "react-icons/bs";
 import Genres from "@/utils/genres";
+import { debounce, set } from "lodash";
+import axios from "axios";
+import { data } from "autoprefixer";
 
 export default function Header() {
   const [showSuggest, setShowSuggest] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
+  const [dataSuggest, setDataSuggest] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const debouncedSearch = debounce(async (searchTerm) => {
+    if (searchTerm === "") {
+      setShowSuggest(false);
+      return;
+    } else {
+      setShowSuggest(true);
+    }
+    const { data } = await axios.get(
+      "https://api.manhwaco.com/search-suggest?q=" + searchTerm
+    );
+    if (!data.status) {
+      setShowSuggest(false);
+      return;
+    }
+    setDataSuggest(data.comics);
+  }, 300);
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
   };
+
   const openSidebar = () => {
     setShowSidebar(true);
   };
   const closeSidebar = () => {
     setShowSidebar(false);
+  };
+
+  const handleSearchSuggest = (e) => {
+    debouncedSearch(e.target.value);
   };
 
   return (
@@ -44,6 +71,9 @@ export default function Header() {
               <li className="text-base font-semibold mx-2 hover:text-rose-700">
                 <Link href="/">Manhwa</Link>
               </li>
+              <li className="text-base font-semibold mx-2 hover:text-rose-700">
+                <Link href="/about">About</Link>
+              </li>
             </ul>
           </div>
           <div className="hidden md:block">
@@ -55,17 +85,23 @@ export default function Header() {
                 type="text"
                 className="outline-none text-sm pl-3 rounded-full"
                 placeholder="Search comics/authors"
+                onChange={handleSearchSuggest}
               />
               <button type="submit" className="flex items-center px-3">
                 <BsSearch />
               </button>
               {showSuggest && (
                 <ul className="z-10 absolute top-11 left-1/2 -translate-x-1/2 w-72 h-max max-h-80 overflow-auto shadow rounded bg-white">
-                  <li className="flex gap-2 p-2 border-b hover:bg-gray-200 duration-100 cursor-pointer">
-                    <div>
-                      <h6 className="font-bold text-sm"></h6>
-                    </div>
-                  </li>
+                  {dataSuggest.map((suggest, index) => (
+                    <li
+                      className="flex gap-2 p-2 border-b hover:bg-gray-200 duration-100 cursor-pointer"
+                      key={index}
+                    >
+                      <Link href={`/comic/${suggest.id}`}>
+                        <h6 className="font-bold text-sm">{suggest.title}</h6>
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               )}
             </form>

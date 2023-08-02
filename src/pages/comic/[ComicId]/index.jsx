@@ -7,19 +7,23 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { AiFillInfoCircle, AiOutlineUnorderedList } from "react-icons/ai";
 
-export async function getServerSideProps(context) {
-  const ComicId = context.query.ComicId;
-  try {
-    const { data } = await axios.get(
-      "https://api.manhwaco.com/comics/" + ComicId
-    );
+export const getComicDetail = async (ComicId) => {
+  return await fetch(`https://api.manhwaco.com/comics/` + ComicId)
+    .then((res) => res.json())
+    .then((res) => res);
+};
 
-    return { props: { data } };
-  } catch (error) {
-    console.error("Error fetching data:", error.message);
-    return { data: [] };
-  }
-}
+export const getStaticProps = async ({ params }) => {
+  const ComicId = params?.ComicId;
+  const data = await getComicDetail(ComicId);
+
+  return {
+    props: {
+      data,
+    },
+    revalidate: 60 * 1,
+  };
+};
 
 const Index = (props) => {
   const title = props?.data.title;
@@ -173,5 +177,12 @@ const Index = (props) => {
     </>
   );
 };
+
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: "blocking",
+  };
+}
 
 export default Index;

@@ -27,6 +27,7 @@ const Chapter = () => {
   );
   useEffect(() => {
     setIsFetching(true);
+    setShowToolbars(false);
     const getData = async () => {
       try {
         const { data } = await axios.get(
@@ -83,11 +84,6 @@ const Chapter = () => {
       </Head>
       <main className="bg-zinc-900 min-h-screen">
         <div className="flex flex-col max-w-2xl mx-auto">
-          {/* <img
-            src={"/start.jpg"}
-            alt="ManhwaCo"
-            className="image-source w-full"
-          /> */}
           {isFetching
             ? virtualArray(10).map((item, index) => {
                 return (
@@ -113,11 +109,6 @@ const Chapter = () => {
                   </div>
                 );
               })}
-          {/* <img
-            src={"/end.jpg"}
-            alt="ManhwaCo"
-            className="image-source w-full"
-          /> */}
         </div>
         <div className="fixed inset-0" onClick={handleShowToolBars}>
           <div
