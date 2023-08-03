@@ -42,6 +42,26 @@ export default function Home(props) {
 
   return (
     <>
+      <Head>
+        <link rel="canonical" href="https://manhwaco.com/" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content="Read Manhwa, Manhwa Hentai, Manhwa 18, Hentai Manga, Hentai Comics, E
+          hentai, Porn Comics | ManhwaCo.Com"
+        />
+        <meta property="og:image" content="https://manhwaco.com/manhwaco.jpg" />
+        <meta
+          property="og:description"
+          content="Read Free Online Manhwa, Manhwa 18, Hentai Comics, Webtoon Hentai, Manhua Hentai, Manga Hentai, Adult Manhwa, Hentai Webtoon, Manhwaco. Along with brand new series! Updated Daily!"
+        />
+        <meta property="og:url" content="https://manhwaco.com/" />
+        <meta
+          property="og:site_name"
+          content="Read Manhwa, Manhwa hentai, Adult Manhwa, Manhwa 18, Hentai Webtoon, Hentai Manhwa, Hentai Manga, Hentai Comics"
+        />
+      </Head>
       <Header />
       <main>
         <div className="featured pb-3 px-2">

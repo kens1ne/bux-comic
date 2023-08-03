@@ -1,13 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 import { AiFillHome, AiOutlineClose, AiOutlineTag } from "react-icons/ai";
 import { BiCategory } from "react-icons/bi";
 import { BsList, BsSearch } from "react-icons/bs";
 import Genres from "@/utils/Genres";
 import { debounce, set } from "lodash";
 import axios from "axios";
-import { data } from "autoprefixer";
 
 export default function Header() {
   const [showSuggest, setShowSuggest] = useState(false);
@@ -112,104 +111,102 @@ export default function Header() {
             <button onClick={openSidebar}>
               <BsList size={30} />
             </button>
-            {showSidebar && (
-              <div>
-                <div
-                  className={`z-20 fixed inset-0 bg-[rgba(0,0,0,0.85)] ease-in duration-300 ${
-                    showSidebar
-                      ? "opacity-100 pointer-events-auto"
-                      : "opacity-0 pointer-events-none"
-                  }`}
-                  onClick={closeSidebar}
-                ></div>
-                <div
-                  className={`overflow-auto z-30 fixed right-0 inset-y-0 bg-white p-5 pt-3 h-screen w-11/12 max-w-sm ease-in duration-300 ${
-                    showSidebar ? "translate-x-0" : "translate-x-full"
-                  }`}
+            <div>
+              <div
+                className={`z-20 fixed inset-0 bg-[rgba(0,0,0,0.85)] ease-in duration-300 ${
+                  showSidebar
+                    ? "opacity-100 pointer-events-auto"
+                    : "opacity-0 pointer-events-none"
+                }`}
+                onClick={closeSidebar}
+              ></div>
+              <div
+                className={`overflow-auto z-30 fixed right-0 inset-y-0 bg-white p-5 pt-3 h-screen w-11/12 max-w-sm ease-in duration-300 ${
+                  showSidebar ? "translate-x-0" : "translate-x-full"
+                }`}
+              >
+                <button onClick={closeSidebar}>
+                  <AiOutlineClose size={20} />
+                </button>
+                <form
+                  className="flex items-center rounded-full border py-2 focus-within:border-red-500 duration-100 relative"
+                  onSubmit={handleSubmitForm}
                 >
-                  <button onClick={closeSidebar}>
-                    <AiOutlineClose size={20} />
+                  <input
+                    type="text"
+                    className="outline-none text-sm pl-3 rounded-full w-full"
+                    placeholder="Search comics/authors"
+                    onChange={handleSearchSuggest}
+                  />
+                  <button type="submit" className="flex items-center px-3">
+                    <BsSearch />
                   </button>
-                  <form
-                    className="flex items-center rounded-full border py-2 focus-within:border-red-500 duration-100 relative"
-                    onSubmit={handleSubmitForm}
-                  >
-                    <input
-                      type="text"
-                      className="outline-none text-sm pl-3 rounded-full w-full"
-                      placeholder="Search comics/authors"
-                      onChange={handleSearchSuggest}
-                    />
-                    <button type="submit" className="flex items-center px-3">
-                      <BsSearch />
-                    </button>
-                    {showSuggest && (
-                      <ul className="z-10 absolute top-11 left-1/2 -translate-x-1/2 w-72 h-max max-h-80 overflow-auto shadow rounded bg-white">
-                        {dataSuggest.map((suggest, index) => (
-                          <li
-                            className="flex gap-2 p-2 border-b hover:bg-gray-200 duration-100 cursor-pointer"
-                            key={index}
-                          >
-                            <Link href={`/comic/${suggest.id}`}>
-                              <h6 className="font-bold text-sm">
-                                {suggest.title}
-                              </h6>
-                            </Link>
-                          </li>
+                  {showSuggest && (
+                    <ul className="z-10 absolute top-11 left-1/2 -translate-x-1/2 w-72 h-max max-h-80 overflow-auto shadow rounded bg-white">
+                      {dataSuggest.map((suggest, index) => (
+                        <li
+                          className="flex gap-2 p-2 border-b hover:bg-gray-200 duration-100 cursor-pointer"
+                          key={index}
+                        >
+                          <Link href={`/comic/${suggest.id}`}>
+                            <h6 className="font-bold text-sm">
+                              {suggest.title}
+                            </h6>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </form>
+                <ul className="mt-5">
+                  <li>
+                    <Link
+                      href="/"
+                      className="flex items-center font-medium text-lg"
+                    >
+                      <AiFillHome size={18} className="mr-1" /> Home
+                    </Link>
+                  </li>
+                  <li className="mt-2">
+                    <Link
+                      href={`/genres/manhwa-hentai-002`}
+                      className="flex items-center font-medium text-lg"
+                    >
+                      <AiOutlineTag size={18} className="mr-1" />
+                      Manhwa
+                    </Link>
+                  </li>
+                  <li className="mt-2">
+                    <Link
+                      href={`/genres/manhua`}
+                      className="flex items-center font-medium text-lg"
+                    >
+                      <AiOutlineTag size={18} className="mr-1" />
+                      Manhua
+                    </Link>
+                  </li>
+                  <li className="mt-2">
+                    <div
+                      className="flex items-center font-medium text-lg"
+                      onClick={handleShowMenuGenres}
+                    >
+                      <BiCategory size={18} className="mr-1" /> Genres
+                    </div>
+                    {showMenuGenres && (
+                      <ul className="grid grid-cols-2">
+                        {Genres.map((genre) => (
+                          <Link href={`/genres/${genre.id}`} key={genre.id}>
+                            <li className="py-1 px-4 hover:bg-rose-500/10 hover:text-rose-600 rounded">
+                              {genre.name}
+                            </li>
+                          </Link>
                         ))}
                       </ul>
                     )}
-                  </form>
-                  <ul className="mt-5">
-                    <li>
-                      <Link
-                        href="/"
-                        className="flex items-center font-medium text-lg"
-                      >
-                        <AiFillHome size={18} className="mr-1" /> Home
-                      </Link>
-                    </li>
-                    <li className="mt-2">
-                      <Link
-                        href={`/genres/manhwa-hentai-002`}
-                        className="flex items-center font-medium text-lg"
-                      >
-                        <AiOutlineTag size={18} className="mr-1" />
-                        Manhwa
-                      </Link>
-                    </li>
-                    <li className="mt-2">
-                      <Link
-                        href={`/genres/manhua`}
-                        className="flex items-center font-medium text-lg"
-                      >
-                        <AiOutlineTag size={18} className="mr-1" />
-                        Manhua
-                      </Link>
-                    </li>
-                    <li className="mt-2">
-                      <div
-                        className="flex items-center font-medium text-lg"
-                        onClick={handleShowMenuGenres}
-                      >
-                        <BiCategory size={18} className="mr-1" /> Genres
-                      </div>
-                      {showMenuGenres && (
-                        <ul className="grid grid-cols-2">
-                          {Genres.map((genre) => (
-                            <Link href={`/genres/${genre.id}`} key={genre.id}>
-                              <li className="py-1 px-4 hover:bg-rose-500/10 hover:text-rose-600 rounded">
-                                {genre.name}
-                              </li>
-                            </Link>
-                          ))}
-                        </ul>
-                      )}
-                    </li>
-                  </ul>
-                </div>
+                  </li>
+                </ul>
               </div>
-            )}
+            </div>
           </div>
         </nav>
       </div>

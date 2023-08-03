@@ -60,7 +60,7 @@ const Features = ({ data }) => {
             </div>
           </div>
           <Link
-            href="/"
+            href={`/comic/${data.id}`}
             className="absolute flex items-center right-5 bottom-3 text-white font-medium transition duration-150 ease-in-out hover:drop-shadow-lg"
           >
             Start Reading
