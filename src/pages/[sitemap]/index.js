@@ -1,9 +1,9 @@
 import Genres from "@/utils/Genres";
 
 const getLatestPost = async (page = 1) => {
-  return await fetch(`https://api.manhwaco.com/latest?page=${page}`)
-    .then((res) => res.json())
-    .then((res) => res);
+  const { data } = await axios.get(
+    `${process.env.API_COMICS}/latest?page=${page}`
+  );
 };
 
 const generatePosts = (posts) => {
@@ -14,7 +14,7 @@ const generatePosts = (posts) => {
       posts
         .map((item) => {
           return `<url>
-        <loc>${process.env.DOMAIN}/comic/${item.id}</loc>
+        <loc>${process.env.CURRENT_URL}/comic/${item.id}</loc>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
       </url>`;
@@ -29,14 +29,14 @@ const generateGenres = (genres) => {
   return `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-      <loc>${process.env.DOMAIN}</loc>
+      <loc>${process.env.CURRENT_URL}</loc>
     </url>
     ${
       genres &&
       genres
         .map((item) => {
           return `<url>
-        <loc>${process.env.DOMAIN}/genres/${item.id}</loc>
+        <loc>${process.env.CURRENT_URL}/genres/${item.id}</loc>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
       </url>`;

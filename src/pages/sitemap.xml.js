@@ -1,7 +1,7 @@
 import Genres from "@/utils/Genres";
 
 const getLatestPost = async () => {
-  return await fetch(`https://api.manhwaco.com/latest`)
+  return await fetch(`${process.env.API_COMICS}/latest`)
     .then((res) => res.json())
     .then((res) => res);
 };
@@ -12,14 +12,14 @@ const generateSitemap = (total_pages) => {
   let sitemap = "";
   for (let i = 1; i <= total_pages; i++) {
     sitemap += `<sitemap>
-        <loc>${process.env.DOMAIN}/sitemap_post_${i}.xml</loc>
+        <loc>${process.env.CURRENT_URL}/sitemap_post_${i}.xml</loc>
         <lastmod>${currentTime.toISOString()}</lastmod>
 </sitemap>`;
   }
   return `<?xml version="1.0" encoding="UTF-8"?>
   <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <sitemap>
-    <loc>${process.env.DOMAIN}/sitemap_pages.xml</loc>
+    <loc>${process.env.CURRENT_URL}/sitemap_pages.xml</loc>
       <lastmod>${currentTime.toISOString()}</lastmod>
     </sitemap>
         ${sitemap}

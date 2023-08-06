@@ -10,9 +10,10 @@ import Pagination from "@/components/Pagination";
 import Footer from "@/components/layout/Footer";
 
 const getLatestUpdateByPage = async (page) => {
-  return await fetch(`https://api.manhwaco.com/latest?page=` + page)
-    .then((res) => res.json())
-    .then((res) => res);
+  const { data } = await axios.get(
+    `${process.env.API_COMICS}/latest?page=${page}`
+  );
+  return data;
 };
 
 export const getStaticProps = async ({ params }) => {

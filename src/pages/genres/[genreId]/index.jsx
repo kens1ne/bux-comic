@@ -9,9 +9,10 @@ import Footer from "@/components/layout/Footer";
 import Genres from "@/utils/Genres";
 
 const getComicGenre = async (genreId) => {
-  return await fetch(`https://api.manhwaco.com/genres/` + genreId)
-    .then((res) => res.json())
-    .then((res) => res);
+  const { data } = await axios.get(
+    `${process.env.API_COMICS}/genres/${genreId}`
+  );
+  return data;
 };
 
 export const getStaticProps = async ({ params }) => {
@@ -43,7 +44,7 @@ const Genre = (props) => {
     genreName +
     " - Page " +
     page +
-    " | Read Manhwa, Adult Manhwa, Manhwaco.Com";
+    " | Read Manhwa, Manhwa 18+, Adult Manhwa, Manhwaco.Com";
   const totalPages = props.totalPages;
 
   return (

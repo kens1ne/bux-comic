@@ -21,13 +21,13 @@ export default function Header() {
     } else {
       setShowSuggest(true);
     }
-    const { data } = await axios.get(
-      "https://api.manhwaco.com/search-suggest?q=" + searchTerm
-    );
+    const { data } = await axios.get(`api/search-suggest?q=${searchTerm}`);
+
     if (!data.status) {
       setShowSuggest(false);
       return;
     }
+
     setDataSuggest(data.comics);
   }, 200);
 
@@ -73,7 +73,10 @@ export default function Header() {
               </li>
 
               <li className="text-base font-semibold mx-2 hover:text-rose-700">
-                <Link href="/">Manhwa</Link>
+                <Link href="/genres/manhwa-hentai-002">Manhwa 18+</Link>
+              </li>
+              <li className="text-base font-semibold mx-2 hover:text-rose-700">
+                <Link href="/genres/hentai">Hentai</Link>
               </li>
             </ul>
           </div>
@@ -98,8 +101,8 @@ export default function Header() {
                       className="flex gap-2 p-2 border-b hover:bg-gray-200 duration-100 cursor-pointer"
                       key={index}
                     >
-                      <Link href={`/comic/${suggest.id}`}>
-                        <h6 className="font-bold text-sm">{suggest.title}</h6>
+                      <Link href={`/comic/${suggest.name}`}>
+                        <h6 className="font-bold text-sm">{suggest.name}</h6>
                       </Link>
                     </li>
                   ))}
@@ -148,9 +151,9 @@ export default function Header() {
                           className="flex gap-2 p-2 border-b hover:bg-gray-200 duration-100 cursor-pointer"
                           key={index}
                         >
-                          <Link href={`/comic/${suggest.id}`}>
+                          <Link href={`/comic/${suggest.name}`}>
                             <h6 className="font-bold text-sm">
-                              {suggest.title}
+                              {suggest.name}
                             </h6>
                           </Link>
                         </li>
@@ -159,30 +162,44 @@ export default function Header() {
                   )}
                 </form>
                 <ul className="mt-5">
-                  <li>
+                  <li className="border-b-[1px]">
                     <Link
                       href="/"
                       className="flex items-center font-medium text-lg"
                     >
-                      <AiFillHome size={18} className="mr-1" /> Home
+                      Home
                     </Link>
                   </li>
-                  <li className="mt-2">
+                  <li className="mt-2 border-b-[1px]">
                     <Link
                       href={`/genres/manhwa-hentai-002`}
                       className="flex items-center font-medium text-lg"
                     >
-                      <AiOutlineTag size={18} className="mr-1" />
                       Manhwa
                     </Link>
                   </li>
-                  <li className="mt-2">
+                  <li className="mt-2 border-b-[1px]">
                     <Link
                       href={`/genres/manhua`}
                       className="flex items-center font-medium text-lg"
                     >
-                      <AiOutlineTag size={18} className="mr-1" />
                       Manhua
+                    </Link>
+                  </li>
+                  <li className="mt-2 border-b-[1px]">
+                    <Link
+                      href={`/genres/hentai`}
+                      className="flex items-center font-medium text-lg"
+                    >
+                      Hentai
+                    </Link>
+                  </li>
+                  <li className="mt-2 border-b-[1px]">
+                    <Link
+                      href={`/genres/adult`}
+                      className="flex items-center font-medium text-lg"
+                    >
+                      Adult
                     </Link>
                   </li>
                   <li className="mt-2">

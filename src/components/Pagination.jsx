@@ -82,7 +82,7 @@ const Pagination = ({ path, currentPage, totalPages }) => {
         )}
 
         {totalPages - currentPage === 2 ||
-        totalPages - currentPage === 0 ? null : (
+        totalPages - currentPage >= 0 ? null : (
           <Link
             className="flex w-10 h-10 mx-1 justify-center items-center rounded-full border border-gray-200 bg-white text-black hover:border-gray-300"
             href={`/${path}/${currentPage + 2}`}

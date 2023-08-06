@@ -9,11 +9,10 @@ import Footer from "@/components/layout/Footer";
 import Genres from "@/utils/Genres";
 
 const getComicGenreByPage = async (genreId, page) => {
-  return await fetch(
-    "https://api.manhwaco.com/genres/" + genreId + "?page=" + page
-  )
-    .then((res) => res.json())
-    .then((res) => res);
+  const { data } = await axios.get(
+    `${process.env.API_COMICS}/genres/${genreId}?page=${page}`
+  );
+  return data;
 };
 
 export const getStaticProps = async ({ params }) => {

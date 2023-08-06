@@ -15,9 +15,8 @@ import Pagination from "@/components/Pagination";
 import Footer from "@/components/layout/Footer";
 
 const getAllPosts = async () => {
-  return await fetch(`https://api.manhwaco.com/latest`)
-    .then((res) => res.json())
-    .then((res) => res);
+  const { data } = await axios.get(`${process.env.API_COMICS}/latest`);
+  return data;
 };
 
 export const getStaticProps = async () => {

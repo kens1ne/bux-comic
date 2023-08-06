@@ -8,9 +8,10 @@ import React, { useEffect, useState } from "react";
 import { AiFillInfoCircle, AiOutlineUnorderedList } from "react-icons/ai";
 
 const getComicDetail = async (ComicId) => {
-  return await fetch(`http://api.manhwaco.com/comics/` + ComicId)
-    .then((res) => res.json())
-    .then((res) => res);
+  const { data } = await axios.get(
+    `${process.env.API_COMICS}/comics/${ComicId}`
+  );
+  return data;
 };
 
 export const getStaticProps = async ({ params }) => {
@@ -47,7 +48,7 @@ const Index = (props) => {
     const getData = async () => {
       try {
         const { data } = await axios.get(
-          "https://api.manhwaco.com/comics/" + props?.data.id + "/chapters/"
+          `/api/comics/${props?.data.id}/chapters`
         );
 
         setChapters(data);

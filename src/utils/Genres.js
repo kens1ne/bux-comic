@@ -1,206 +1,182 @@
 export default [
   {
-    id: "action",
+    id: "action-26",
     name: "Action",
   },
   {
-    id: "adult",
-    name: "Adult",
-  },
-  {
-    id: "adventure",
+    id: "adventure-27",
     name: "Adventure",
   },
   {
-    id: "bl-webtoon",
-    name: "BL",
+    id: "anime-62",
+    name: "Anime",
   },
   {
-    id: "boys-love",
-    name: "Boys love",
+    id: "chuyen-sinh-91",
+    name: "Chuyển Sinh",
   },
   {
-    id: "comedy",
+    id: "co-dai-90",
+    name: "Cổ Đại",
+  },
+  {
+    id: "comedy-28",
     name: "Comedy",
   },
   {
-    id: "complete",
-    name: "Complete",
+    id: "comic-60",
+    name: "Comic",
   },
   {
-    id: "cooking",
-    name: "Cooking",
+    id: "demons-99",
+    name: "Demons",
   },
   {
-    id: "doujinshi",
+    id: "detective-100",
+    name: "Detective",
+  },
+  {
+    id: "doujinshi-96",
     name: "Doujinshi",
   },
   {
-    id: "drama",
+    id: "drama-29",
     name: "Drama",
   },
   {
-    id: "ecchi",
-    name: "Ecchi",
-  },
-  {
-    id: "fantasy",
+    id: "fantasy-30",
     name: "Fantasy",
   },
   {
-    id: "girls-love",
-    name: "Girls love",
+    id: "gender-bender-45",
+    name: "Gender Bender",
   },
   {
-    id: "gossip",
-    name: "Gossip",
-  },
-  {
-    id: "harem",
+    id: "harem-47",
     name: "Harem",
   },
   {
-    id: "hentai",
-    name: "Hentai",
-  },
-  {
-    id: "historical",
+    id: "historical-51",
     name: "Historical",
   },
   {
-    id: "horror",
+    id: "horror-44",
     name: "Horror",
   },
   {
-    id: "isekai",
+    id: "huyen-huyen-468",
+    name: "Huyền Huyễn",
+  },
+  {
+    id: "isekai-85",
     name: "Isekai",
   },
   {
-    id: "japanese",
-    name: "Japanese",
-  },
-  {
-    id: "josei",
+    id: "josei-54",
     name: "Josei",
   },
   {
-    id: "manga",
-    name: "Manga",
+    id: "mafia-69",
+    name: "Mafia",
   },
   {
-    id: "manga-hentai",
-    name: "Manga hentai",
+    id: "magic-58",
+    name: "Magic",
   },
   {
-    id: "manhua",
+    id: "manhua-35",
     name: "Manhua",
   },
   {
-    id: "manhwa-hentai-002",
+    id: "manhwa-49",
     name: "Manhwa",
   },
   {
-    id: "martial-arts",
+    id: "martial-arts-41",
     name: "Martial Arts",
   },
   {
-    id: "mature",
-    name: "Mature",
+    id: "military-101",
+    name: "Military",
   },
   {
-    id: "mecha",
-    name: "Mecha",
-  },
-  {
-    id: "medical",
-    name: "Medical",
-  },
-  {
-    id: "mystery",
+    id: "mystery-39",
     name: "Mystery",
   },
   {
-    id: "one-shot",
+    id: "ngon-tinh-87",
+    name: "Ngôn Tình",
+  },
+  {
+    id: "one-shot-95",
     name: "One shot",
   },
   {
-    id: "porn-comic",
-    name: "porn comic",
+    id: "psychological-40",
+    name: "Psychological",
   },
   {
-    id: "romance",
+    id: "romance-36",
     name: "Romance",
   },
   {
-    id: "school-life-manhwa-hentai-001",
-    name: "School life",
+    id: "school-life-37",
+    name: "School Life",
   },
   {
-    id: "sci-fi",
+    id: "sci-fi-43",
     name: "Sci-fi",
   },
   {
-    id: "seinen",
+    id: "seinen-42",
     name: "Seinen",
   },
   {
-    id: "shoujo",
+    id: "shoujo-38",
     name: "Shoujo",
   },
   {
-    id: "shoujo-ai",
+    id: "shoujo-ai-98",
     name: "Shoujo Ai",
   },
   {
-    id: "shounen",
+    id: "shounen-31",
     name: "Shounen",
   },
   {
-    id: "shounen-ai",
+    id: "shounen-ai-86",
     name: "Shounen Ai",
   },
   {
-    id: "slice-of-life",
-    name: "Slice of Life",
+    id: "slice-of-life-46",
+    name: "Slice of life",
   },
   {
-    id: "smut",
-    name: "Smut",
-  },
-  {
-    id: "sports",
+    id: "sports-57",
     name: "Sports",
   },
   {
-    id: "supernatural",
+    id: "supernatural-32",
     name: "Supernatural",
   },
   {
-    id: "thriller",
-    name: "Thriller",
-  },
-  {
-    id: "tl",
-    name: "TL",
-  },
-  {
-    id: "tragedy",
+    id: "tragedy-52",
     name: "Tragedy",
   },
   {
-    id: "webtoon",
+    id: "trong-sinh-82",
+    name: "Trọng Sinh",
+  },
+  {
+    id: "truyen-mau-92",
+    name: "Truyện Màu",
+  },
+  {
+    id: "webtoon-55",
     name: "Webtoon",
   },
   {
-    id: "webtoons",
-    name: "Webtoons",
-  },
-  {
-    id: "yaoi",
-    name: "Yaoi",
-  },
-  {
-    id: "yuri",
-    name: "Yuri",
+    id: "xuyen-khong-88",
+    name: "Xuyên Không",
   },
 ];
