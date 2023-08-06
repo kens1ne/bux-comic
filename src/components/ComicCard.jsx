@@ -20,7 +20,7 @@ const Comic = ({ data }) => {
         </div>
 
         <div className="comic-name absolute left-2 top-2 text-xs p-1 bg-black/70 rounded text-white group-hover:bg-red-700/70">
-          {data.time_ago}
+          {data.last_chapter?.[0]?.name}
         </div>
       </Link>
       <div className="information">

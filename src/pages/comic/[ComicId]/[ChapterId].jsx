@@ -31,7 +31,7 @@ const Chapter = () => {
     const getData = async () => {
       try {
         const { data } = await axios.get(
-          `/api/comics/${ComicId}/chapters/${ChapterId}`
+          `${process.env.NEXT_PUBLIC_API_COMICS}/comics/${ComicId}/chapters/${ChapterId}`
         );
         setData(data);
         setTitle(

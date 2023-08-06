@@ -48,7 +48,7 @@ const Index = (props) => {
     const getData = async () => {
       try {
         const { data } = await axios.get(
-          `/api/comics/${props?.data.id}/chapters`
+          `${process.env.NEXT_PUBLIC_API_COMICS}/comics/${props?.data.id}/chapters`
         );
 
         setChapters(data);
